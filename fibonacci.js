@@ -23,3 +23,4 @@ const fibonacci = (n) => {
 };
 
 console.log(fibonacci(3));
+console.log(fibonacci(5));
