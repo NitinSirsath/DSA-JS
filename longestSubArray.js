@@ -1,6 +1,30 @@
- const totalSum = (arr) => {
+const totalSum = (arr) => {
    return   arr.length !== 0 && arr.reduce((total, next) => total + next)
  }
+ 
+ const getIndexes = (arr1,arr2) => {
+    let indexes = []
+    let count = 0
+    for(let i = 0; i< arr1.length; i++){
+        if(indexes.length !== 0 && arr1[i] !== arr2[count]){
+             indexes=[]
+            count = 0
+        }
+        if(arr1[i] === arr2[count]){
+            indexes.push(i)
+            count++
+            if(arr2.length === indexes.length) {
+                return indexes
+            }
+        }else{
+            indexes=[]
+            count = 0
+            
+        }
+    }
+    return false
+}
+
 const longestSumArr = (nums, target) => {
     let arr = []
     let obj = {}
@@ -24,9 +48,7 @@ const longestSumArr = (nums, target) => {
               }
         }
         const longest = Object.values(obj).sort((a,b) => b.length - a.length)[0]
-    return longest
+    return getIndexes(nums,longest)
 }
 
-    console.log(longestSumArr([1,2,2,4,1,1,1,3], 6))
-    
- 
+    console.log(longestSumArr([3,2,2,1,3], 6))
