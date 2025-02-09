@@ -43,3 +43,22 @@ function groupAnagrams(strs) {
 const strs = ["act","pots","tops","cat","stop","hat"]
 
 console.log(groupAnagrams(strs));
+
+
+// Input: strs = ["act","pots","tops","cat","stop","hat"]
+
+// Output: [["hat"],["act", "cat"],["stop", "pots", "tops"]]
+
+function groupAnagrams2(strs) {
+    let collection = {}
+    for(let str of strs){
+    const sorted = str.split("").sort().join("")
+  collection[sorted] = [...(collection[sorted] ?? []),str]
+    }
+    return Object.values(collection).sort((a,b)=> a.length - b.length)
+}
+
+const strs2 = ['act', 'pots', 'tops', 'cat', 'stop', 'hat'];
+
+console.log(groupAnagrams2(strs2));
+
