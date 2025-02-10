@@ -23,7 +23,7 @@
 
 
 function frequentElement(nums,k) {
-   let res = {}
+  let res = {}
         for(let num of nums){
            if(res[num]){
             res[num] = [...res[num],num]
@@ -31,7 +31,7 @@ function frequentElement(nums,k) {
                res[num] = [num]
            }
         }
-        const test =  Object.values(res).reverse()
+        const test =  Object.values(res).sort((a,b)=> b.length - a.length)
         let final = []
         for(let i = 0; i < k ; i++){
             final.push(test[i][0])
