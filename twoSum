@@ -1,0 +1,28 @@
+
+const test = (numbers, target) => {
+    const arr = Array.from(new Set(numbers))
+    let check
+    let l = 0
+    let r = arr.length -1
+      for(let i in arr){
+           let left = arr[l]
+           let right = arr[r]
+           if(left === right){
+               break
+           }
+           check = left + right
+           if(check === t){
+               return [left,right]
+           }
+           if(check > t){
+               r--
+           }else{
+               l++
+           }
+      }
+    }
+
+
+
+const arr= [2,3,4]
+const t = 6
