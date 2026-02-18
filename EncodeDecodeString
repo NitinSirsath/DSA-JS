@@ -1,0 +1,33 @@
+const strs = ["neet","code","love","you"]
+
+
+const encode = (strs) => {
+    let lengths ={}
+  
+    for(let str in strs){
+        lengths[str] = strs[str].length
+    }
+     const res = strs.join("")
+  //neetcodeloveyou
+    return decode(res,lengths)
+}
+
+const decode = (encodedStr, lengths) => {
+    let final = []
+ const strs = Object.values(lengths)
+    const len = Object.keys(lengths).length
+    let count = 0  
+    for(let i = 0; i < len; i++){
+     const str = encodedStr.substr(count, strs[i])
+    final.push(str)
+    count = strs[i] + count
+ }
+ return final
+}
+
+
+
+console.log(encode(strs))
+
+// const res = strs.join("")
+// console.log(res)
